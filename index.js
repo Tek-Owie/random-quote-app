@@ -1,38 +1,45 @@
 /**
  1. fetch array of quotes
  2. click to show a new quote
- */
+*/
+const API_URL = 'https://type.fit/api/quotes';
 
-const quotesArray = [
-    {
-        "text": "Genius is one percent inspiration and ninety-nine percent perspiration.",
-        "author": "Thomas Edison"
-    },
-    {
-        "text": "You can observe a lot just by watching.",
-        "author": "Yogi Berra"
-    },
-    {
-        "text": "A house divided against itself cannot stand.",
-        "author": "Abraham Lincoln"
-    },
-    {
-        "text": "Difficulties increase the nearer we get to the goal.",
-        "author": "Johann Wolfgang von Goethe"
-    },
-    {
-        "text": "Fate is in your hands and no one elses",
-        "author": "Byron Pulsifer"
-    },
-    {
-        "text": "Be the chief but never the lord.",
-        "author": "Lao Tzu"
-    },
-    {
-        "text": "Nothing happens unless first we dream.",
-        "author": "Carl Sandburg"
-    }
-];
+let quotesArray = [];
+
+(async function fetchQuotesArray() {
+    const res = await fetch(API_URL);
+    quotesArray = await res.json();
+}())
+// const quotesArray = [
+//     {
+//         "text": "Genius is one percent inspiration and ninety-nine percent perspiration.",
+//         "author": "Thomas Edison"
+//     },
+//     {
+//         "text": "You can observe a lot just by watching.",
+//         "author": "Yogi Berra"
+//     },
+//     {
+//         "text": "A house divided against itself cannot stand.",
+//         "author": "Abraham Lincoln"
+//     },
+//     {
+//         "text": "Difficulties increase the nearer we get to the goal.",
+//         "author": "Johann Wolfgang von Goethe"
+//     },
+//     {
+//         "text": "Fate is in your hands and no one elses",
+//         "author": "Byron Pulsifer"
+//     },
+//     {
+//         "text": "Be the chief but never the lord.",
+//         "author": "Lao Tzu"
+//     },
+//     {
+//         "text": "Nothing happens unless first we dream.",
+//         "author": "Carl Sandburg"
+//     }
+// ];
 // Variables
 const button = document.querySelector('button');
 let quote = document.querySelector('#quote');
